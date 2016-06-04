@@ -1,0 +1,7 @@
+- "github.com":
+    - "Hi-king":
+        "user.name": "Hi-king"
+        "user.email": "hikingko1@gmail.com"
+    - ".*":
+        "user.name": "K.O."
+        "user.email": "hikingko1@gmail.com"
