@@ -9,7 +9,7 @@ Changing git config according to repository urls. This helps you to  have variou
 
 ## Config
 
-### example1: change email according to the site
+### example1: change your email according to the site
 
 ```yaml
 - "github.yourcompany.com":
@@ -26,7 +26,7 @@ Changing git config according to repository urls. This helps you to  have variou
         "user.email": "john_smith@gmail.com"
 ```
 
-### example2: change name according to organization
+### example2: change your name according to organization
 
 ```yaml
 - "github.com":
