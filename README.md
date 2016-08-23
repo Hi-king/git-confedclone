@@ -3,7 +3,7 @@ Changing git config according to repository urls. This helps you to  have variou
 
 ## Usage
 
-1. `setup.py install`
+1. `pip install git+https://github.com/pfnet/chainer.git` or `setup.py install`
 2. write `~/.gitconfedclone` according to your environment
 3. now `git confedclone https://github.com/xxxx/yyyy` do the trick
 

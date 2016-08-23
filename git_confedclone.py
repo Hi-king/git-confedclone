@@ -7,7 +7,10 @@ import subprocess
 import sys
 import re
 import os
-import StringIO
+try:
+    from StringIO import StringIO
+except:
+    from io import StringIO
 import yaml
 
 def parse_repository(repository):
@@ -29,9 +32,9 @@ def parse_repository(repository):
 def get_switched_conf(repository_info, conf_dict):
     if conf_dict is None: #conffile not found
         return {}
-    for hostmatcher_string, hostmatched_value in [each_dict.items()[0] for each_dict in conf_dict]:
+    for hostmatcher_string, hostmatched_value in [list(each_dict.items())[0] for each_dict in conf_dict]:
         if re.match(hostmatcher_string, repository_info.host):
-            for usermatcher_string, conf in [each_hostmatched_dict.items()[0] for each_hostmatched_dict in  hostmatched_value]:
+            for usermatcher_string, conf in [list(each_hostmatched_dict.items())[0] for each_hostmatched_dict in  hostmatched_value]:
                 if re.match(usermatcher_string, repository_info.uname):
                     return conf
     return {}
@@ -40,7 +43,7 @@ def find_conffile():
     if os.path.exists(os.path.expanduser("~/.gitconfedclone")):
         return open(os.path.expanduser("~/.gitconfedclone"))
     else:
-        return StringIO.StringIO() #works as void file
+        return StringIO() #works as void file
 
 def main():
     parser = argparse.ArgumentParser()
